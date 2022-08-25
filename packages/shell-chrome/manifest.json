@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "抖音支付助手",
+  "version": "1.0.1",
+  "description": "抖音支付助手",
+  "author": "Gj",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.douyin.com/*",
+        "https://tp-pay.snssdk.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "64": "icons/64.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.douyin.com/*",
+    "https://tp-pay.snssdk.com/*"
+  ],
+  "action": {
+    "default_title": "抖音支付助手",
+    "default_icon": "icons/64.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "document.js",
+        "webui.umd.cjs"
+      ],
+      "matches": [
+        "https://www.douyin.com/*",
+        "https://tp-pay.snssdk.com/*"
+      ]
+    }
+  ]
+}

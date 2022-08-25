@@ -1,0 +1,25 @@
+{
+  "name": "douyin-payment-assistant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C \"./packages/server\" dev",
+    "dev:ui": "pnpm -C \"./packages/webui\" dev",
+    "build": "pnpm -F \"./packages/**\" build && pnpm zip",
+    "build:addon": "pnpm -C \"./packages/shell-chrome\" build",
+    "build:ui": "pnpm -C \"./packages/webui\" build",
+    "rm:node_modules": "rm -rf node_modules packages/**/node_modules",
+    "zip": "rm -rf zip/*.zip && node ./extension-zips.js",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "archiver": "^5.3.1",
+    "inquirer": "^9.1.0",
+    "progress": "^2.0.3",
+    "readdir-glob": "^1.1.2"
+  }
+}

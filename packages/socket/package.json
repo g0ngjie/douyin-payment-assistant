@@ -1,0 +1,12 @@
+{
+  "name": "@dpa/socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo build ws"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

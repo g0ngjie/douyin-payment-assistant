@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue"></script>
+    <!-- 会使用最新版本，你最好指定一个版本 -->
+    <script src="https://unpkg.com/naive-ui"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+
+        <n-form label-width="100" label-placement="left">
+            <n-form-item label="链接状态：">
+                {{ data.linkStatus }}
+            </n-form-item>
+            <n-form-item label="重置金额：">
+                <n-input-number v-model:value="data.price"></n-input-number>
+            </n-form-item>
+            <n-form-item label="提交">
+                <n-button size="small" @click="handleSubmit">提交</n-button>
+            </n-form-item>
+        </n-form>
+    </div>
+    <script>
+
+
+
+        const { ref } = Vue
+        const App = {
+            setup() {
+                const data = ref({
+                    linkStatus: '未连接',
+                    price: 0
+                })
+
+                const handleSubmit = () => {
+                    fetch(`/api/send?price=${data.value.price}`)
+                }
+                fetch('/api/linked')
+                    .then(res => res.json())
+                    .then(json => {
+                        if (json.data) data.value.linkStatus = '已被连接'
+                    })
+                return {
+                    data,
+                    handleSubmit,
+                }
+            }
+        }
+        const app = Vue.createApp(App)
+        app.use(naive)
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
