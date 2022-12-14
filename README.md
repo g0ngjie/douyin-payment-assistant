@@ -4,7 +4,7 @@
 
 ![douyin-payment](media/douyin-payment.gif)
 
-### 架构图
+### 原理图
 
 <img src="media/douyin-payment.png" width="500px" />
 
